@@ -107,8 +107,6 @@
      <Compile Include="Assets\Scripts\actions\action_intervals\CCScaleBy.cs" />
      <Compile Include="Assets\Scripts\actions\action_intervals\CCScaleTo.cs" />
      <Compile Include="Assets\Scripts\actions\action_intervals\CCSequence.cs" />
-     <Compile Include="Assets\Scripts\actions\action_intervals\CCSkewBy.cs" />
-     <Compile Include="Assets\Scripts\actions\action_intervals\CCSkewTo.cs" />
      <Compile Include="Assets\Scripts\actions\action_intervals\CCSpawn.cs" />
      <Compile Include="Assets\Scripts\actions\action_intervals\CCTargetedAction.cs" />
      <Compile Include="Assets\Scripts\actions\action_intervals\CCTintBy.cs" />
