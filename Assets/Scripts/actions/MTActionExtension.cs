@@ -5,15 +5,15 @@ namespace MTUnityAction{
 public static class MTActionExtension  {
 
 
-	// public static CCAction runAction(this GameObject target,CCAction action)
+	// public static MTAction runAction(this GameObject target,MTAction action)
 	// {
-	// 	CCCCActionManager.instance.instance.addAction(action,target,false);
+	// 	MTMTActionManager.instance.instance.addAction(action,target,false);
 	// 	return action;
 	// }
 
-	// public static CCAction stopAction(this GameObject target,CCAction action)
+	// public static MTAction stopAction(this GameObject target,MTAction action)
 	// {
-	// 	CCCCActionManager.instance.instance.removeAction(target,action);
+	// 	MTMTActionManager.instance.instance.removeAction(target,action);
 	// 	return action;
 	// }
     #region Actions
@@ -27,41 +27,41 @@ public static class MTActionExtension  {
 		return isActive;
 	}
 
-    public static void AddAction(this GameObject target,CCAction action, bool paused = false)
+    public static void AddAction(this GameObject target,MTAction action, bool paused = false)
     {
 		if (MTActionManager.instance != null)
 				MTActionManager.instance.AddAction(action, target, paused);
 
     }
 
-	public static void AddActions(this GameObject target,bool paused, params CCFiniteTimeAction[] actions)
+	public static void AddActions(this GameObject target,bool paused, params MTFiniteTimeAction[] actions)
     {
 		if (MTActionManager.instance != null)
-				MTActionManager.instance.AddAction(new CCSequence(actions), target, paused);
+				MTActionManager.instance.AddAction(new MTSequence(actions), target, paused);
 
     }
 
-	public static MTActionState Repeat(this GameObject target, uint times, params CCFiniteTimeAction[] actions)
+	public static MTActionState Repeat(this GameObject target, uint times, params MTFiniteTimeAction[] actions)
     {
-			return target.RunAction (new CCRepeat (new CCSequence(actions), times));
+			return target.RunAction (new MTRepeat (new MTSequence(actions), times));
     }
 
-	public static MTActionState Repeat (this GameObject target, uint times, CCFiniteTimeAction action)
+	public static MTActionState Repeat (this GameObject target, uint times, MTFiniteTimeAction action)
     {
-        return  target.RunAction (new CCRepeat (action, times));
+        return  target.RunAction (new MTRepeat (action, times));
     }
 
-	public static MTActionState RepeatForever(this GameObject target, params CCFiniteTimeAction[] actions)
+	public static MTActionState RepeatForever(this GameObject target, params MTFiniteTimeAction[] actions)
     {
-        return target.RunAction(new CCRepeatForever (actions));
+        return target.RunAction(new MTRepeatForever (actions));
     }
 
-	public static MTActionState RepeatForever(this GameObject target, CCFiniteTimeAction action)
+	public static MTActionState RepeatForever(this GameObject target, MTFiniteTimeAction action)
     {
-        return target.RunAction(new CCRepeatForever (action) { Tag = action.Tag });
+        return target.RunAction(new MTRepeatForever (action) { Tag = action.Tag });
     }
 
-	public static MTActionState RunAction(this GameObject target, CCAction action)
+	public static MTActionState RunAction(this GameObject target, MTAction action)
     {
         Debug.Assert(action != null, "Argument must be non-nil");
 		
@@ -71,13 +71,13 @@ public static class MTActionExtension  {
 
 
 
-    public static MTActionState RunActions(this GameObject target, params CCFiniteTimeAction[] actions)
+    public static MTActionState RunActions(this GameObject target, params MTFiniteTimeAction[] actions)
     {
         Debug.Assert(actions != null, "Argument must be non-nil");
 		Debug.Assert(actions.Length > 0, "Paremeter: actions has length of zero. At least one action must be set to run.");
 		
 
-		var action = actions.Length > 1 ? new CCSequence(actions) : actions[0];
+		var action = actions.Length > 1 ? new MTSequence(actions) : actions[0];
 
 			return MTActionManager.instance.AddAction (action, target, !target.IsRunning());
     }
@@ -103,7 +103,7 @@ public static class MTActionExtension  {
 			MTActionManager.instance.RemoveAction(tag, target);
     }
 
-		public static CCAction GetAction(this GameObject target, int tag)
+		public static MTAction GetAction(this GameObject target, int tag)
     {
         Debug.Assert(tag != -1, "Invalid tag");
 			return MTActionManager.instance.GetAction(tag, target);

@@ -96,9 +96,9 @@ namespace MTUnityAction
 
         #endregion Cleaning up
 
-        public CCAction GetAction(int tag, GameObject target)
+        public MTAction GetAction(int tag, GameObject target)
         {
-            Debug.Assert(tag != (int)CCActionTag.Invalid);
+            Debug.Assert(tag != (int)MTActionTag.Invalid);
 
             // Early out if we do not have any targets to search
             if (targets.Count == 0)
@@ -131,7 +131,7 @@ namespace MTUnityAction
 
         public MTActionState GetActionState(int tag, GameObject target)
         {
-            Debug.Assert(tag != (int)CCActionTag.Invalid);
+            Debug.Assert(tag != (int)MTActionTag.Invalid);
 
             // Early out if we do not have any targets to search
             if (targets.Count == 0)
@@ -332,7 +332,7 @@ namespace MTUnityAction
 
         #region Adding/removing actions
 
-        public MTActionState AddAction(CCAction action, GameObject target, bool paused = false)
+        public MTActionState AddAction(MTAction action, GameObject target, bool paused = false)
         {
             Debug.Assert(action != null);
             Debug.Assert(target != null);
@@ -473,7 +473,7 @@ namespace MTUnityAction
             }
         }
 
-        internal void RemoveAction(CCAction action, GameObject target)
+        internal void RemoveAction(MTAction action, GameObject target)
         {
             if (action == null || target == null)
                 return;
@@ -508,7 +508,7 @@ namespace MTUnityAction
 
         public void RemoveAction(int tag, GameObject target)
         {
-            Debug.Assert((tag != (int)CCActionTag.Invalid));
+            Debug.Assert((tag != (int)MTActionTag.Invalid));
             Debug.Assert(target != null);
 
             // Early out if we do not have any targets to search
