@@ -47,8 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\TestAction.cs" />
-     <Compile Include="Assets\Scripts\actions\ActionExtension.cs" />
-     <Compile Include="Assets\Scripts\actions\CCActionManager.cs" />
+     <Compile Include="Assets\Scripts\actions\MTActionExtension.cs" />
+     <Compile Include="Assets\Scripts\actions\MTActionManager.cs" />
      <Compile Include="Assets\Scripts\actions\action\CCAction.cs" />
      <Compile Include="Assets\Scripts\actions\action\CCAmplitudeAction.cs" />
      <Compile Include="Assets\Scripts\actions\action\CCFiniteTimeAction.cs" />

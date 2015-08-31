@@ -6,9 +6,9 @@ public class TestAction : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		CCActionManager.instance.init ();
+		MTActionManager.instance.init ();
 
-		var moveTo = new CCMoveTo (3, new Vector3 (10, 10, 10));
+		var moveTo = new CCMoveTo (12, new Vector3 (10, 10, 10));
 		this.RunAction (moveTo);
 
 	}
@@ -16,5 +16,17 @@ public class TestAction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void OnGUI()
+	{
+		if (GUILayout.Button ("DDDD")) {
+			Destroy (this.gameObject);
+		}
+	}
+
+	void OnDestroy()
+	{
+		Debug.Log ("bebe des");
 	}
 }

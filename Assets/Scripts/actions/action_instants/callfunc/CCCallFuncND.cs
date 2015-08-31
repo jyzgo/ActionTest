@@ -21,7 +21,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override CCActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(MonoBehaviour target)
         {
             return new CCCallFuncNDState (this, target);
 

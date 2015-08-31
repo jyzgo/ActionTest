@@ -15,7 +15,7 @@ namespace MTUnityAction
 
         public Vector3 PositionDelta { get; private set; }
 
-        protected internal override CCActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(MonoBehaviour target)
         {
             return new CCMoveByState (this, target);
         }

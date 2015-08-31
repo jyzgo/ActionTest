@@ -23,14 +23,14 @@ namespace MTUnityAction
         #endregion Constructor
 
 
-        protected internal virtual CCActionState StartAction (MonoBehaviour target)
+        protected internal virtual MTActionState StartAction (MonoBehaviour target)
         {
             return null;
 
         }
     }
 
-    public abstract class CCActionState
+    public abstract class MTActionState
     {
         /// <summary>
         /// Gets or sets the target.
@@ -62,7 +62,7 @@ namespace MTUnityAction
         #endregion Properties
 
 
-        public CCActionState (CCAction action, MonoBehaviour target)
+        public MTActionState (CCAction action, MonoBehaviour target)
         {
             this.Action = action;
             this.Target = target;

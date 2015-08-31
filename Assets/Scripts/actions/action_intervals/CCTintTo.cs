@@ -21,7 +21,7 @@ namespace MTUnityAction
             throw new System.NotImplementedException ();
         }
 
-        protected internal override CCActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(MonoBehaviour target)
         {
             return new CCTintToState (this, target);
         }

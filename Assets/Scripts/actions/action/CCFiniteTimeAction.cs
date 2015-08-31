@@ -49,13 +49,13 @@ namespace MTUnityAction
 
         public abstract CCFiniteTimeAction Reverse();
 
-        protected internal override CCActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(MonoBehaviour target)
         {
             return new CCFiniteTimeActionState (this, target);
         }
     }
 
-    public class CCFiniteTimeActionState : CCActionState
+    public class CCFiniteTimeActionState : MTActionState
     {
         bool firstTick;
 

@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace MTUnityAction{
-public static class ActionExtension  {
+public static class MTActionExtension  {
 
 
 	// public static CCAction runAction(this MonoBehaviour target,CCAction action)
@@ -18,60 +18,60 @@ public static class ActionExtension  {
 	// }
     #region Actions
 
-		public static bool IsRunning(this MonoBehaviour target)
-		{
-			bool isActive = false;
-			if (target && target.gameObject && target.gameObject.activeInHierarchy) {
-				isActive = true;
-			}
-			return isActive;
+	public static bool IsRunning(this MonoBehaviour target)
+	{
+		bool isActive = false;
+		if (target && target.gameObject && target.gameObject.activeInHierarchy) {
+			isActive = true;
 		}
+		return isActive;
+	}
 
     public static void AddAction(this MonoBehaviour target,CCAction action, bool paused = false)
     {
-		if (CCActionManager.instance != null)
-				CCActionManager.instance.AddAction(action, target, paused);
+		if (MTActionManager.instance != null)
+				MTActionManager.instance.AddAction(action, target, paused);
 
     }
 
 	public static void AddActions(this MonoBehaviour target,bool paused, params CCFiniteTimeAction[] actions)
     {
-		if (CCActionManager.instance != null)
-				CCActionManager.instance.AddAction(new CCSequence(actions), target, paused);
+		if (MTActionManager.instance != null)
+				MTActionManager.instance.AddAction(new CCSequence(actions), target, paused);
 
     }
 
-	public static CCActionState Repeat(this MonoBehaviour target, uint times, params CCFiniteTimeAction[] actions)
+	public static MTActionState Repeat(this MonoBehaviour target, uint times, params CCFiniteTimeAction[] actions)
     {
 			return target.RunAction (new CCRepeat (new CCSequence(actions), times));
     }
 
-	public static CCActionState Repeat (this MonoBehaviour target, uint times, CCFiniteTimeAction action)
+	public static MTActionState Repeat (this MonoBehaviour target, uint times, CCFiniteTimeAction action)
     {
         return  target.RunAction (new CCRepeat (action, times));
     }
 
-	public static CCActionState RepeatForever(this MonoBehaviour target, params CCFiniteTimeAction[] actions)
+	public static MTActionState RepeatForever(this MonoBehaviour target, params CCFiniteTimeAction[] actions)
     {
         return target.RunAction(new CCRepeatForever (actions));
     }
 
-	public static CCActionState RepeatForever(this MonoBehaviour target, CCFiniteTimeAction action)
+	public static MTActionState RepeatForever(this MonoBehaviour target, CCFiniteTimeAction action)
     {
         return target.RunAction(new CCRepeatForever (action) { Tag = action.Tag });
     }
 
-	public static CCActionState RunAction(this MonoBehaviour target, CCAction action)
+	public static MTActionState RunAction(this MonoBehaviour target, CCAction action)
     {
         Debug.Assert(action != null, "Argument must be non-nil");
 		
 
-		return  CCActionManager.instance.AddAction(action, target, !target.IsRunning());
+		return  MTActionManager.instance.AddAction(action, target, !target.IsRunning());
     }
 
 
 
-    public static CCActionState RunActions(this MonoBehaviour target, params CCFiniteTimeAction[] actions)
+    public static MTActionState RunActions(this MonoBehaviour target, params CCFiniteTimeAction[] actions)
     {
         Debug.Assert(actions != null, "Argument must be non-nil");
 		Debug.Assert(actions.Length > 0, "Paremeter: actions has length of zero. At least one action must be set to run.");
@@ -79,7 +79,7 @@ public static class ActionExtension  {
 
 		var action = actions.Length > 1 ? new CCSequence(actions) : actions[0];
 
-			return CCActionManager.instance.AddAction (action, target, !target.IsRunning());
+			return MTActionManager.instance.AddAction (action, target, !target.IsRunning());
     }
 
 
@@ -87,32 +87,32 @@ public static class ActionExtension  {
 
     public static void StopAllActions(this MonoBehaviour target)
     {
-        if(CCActionManager.instance != null)
-            CCActionManager.instance.RemoveAllActionsFromTarget(target);
+        if(MTActionManager.instance != null)
+            MTActionManager.instance.RemoveAllActionsFromTarget(target);
     }
 
-    public static void StopAction(this MonoBehaviour target, CCActionState actionState)
+    public static void StopAction(this MonoBehaviour target, MTActionState actionState)
     {
-        if(CCActionManager.instance != null)
-            CCActionManager.instance.RemoveAction(actionState);
+        if(MTActionManager.instance != null)
+            MTActionManager.instance.RemoveAction(actionState);
     }
 
 	public static void StopAction(this MonoBehaviour target, int tag)
     {
         Debug.Assert(tag != -1, "Invalid tag");
-			CCActionManager.instance.RemoveAction(tag, target);
+			MTActionManager.instance.RemoveAction(tag, target);
     }
 
 		public static CCAction GetAction(this MonoBehaviour target, int tag)
     {
         Debug.Assert(tag != -1, "Invalid tag");
-			return CCActionManager.instance.GetAction(tag, target);
+			return MTActionManager.instance.GetAction(tag, target);
     }
 
-    public static CCActionState GetActionState(this MonoBehaviour target, int tag)
+    public static MTActionState GetActionState(this MonoBehaviour target, int tag)
     {
         Debug.Assert(tag != -1, "Invalid tag");
-        return CCActionManager.instance.GetActionState(tag, target);
+        return MTActionManager.instance.GetActionState(tag, target);
     }
 
     #endregion Actions

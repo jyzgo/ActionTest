@@ -1,44 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/actions/CCActionManager.cs">
-    <Files>
-      <File FileName="Assets/Scripts/actions/action_intervals/CCRotateBy.cs" Line="22" Column="10" />
-      <File FileName="Assets/Scripts/actions/action/CCAction.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action/CCFiniteTimeAction.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action/CCAmplitudeAction.cs" Line="5" Column="1" />
-      <File FileName="Assets/Scripts/actions/action/CCSpeed.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_ease/CCActionEase.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_ease/CCEaseSineInOut.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_ease/CCEaseElasticIn.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCTintTo.cs" Line="52" Column="5" />
-      <File FileName="Assets/Scripts/actions/CCActionManager.cs" Line="135" Column="4" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCScaleTo.cs" Line="75" Column="72" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCMoveBy.cs" Line="25" Column="62" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCMoveTo.cs" Line="34" Column="11" />
-      <File FileName="Assets/Scripts/actions/action_ease/CCEaseBackIn.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_math/CCSplineMath.cs" Line="45" Column="24" />
-      <File FileName="Assets/Scripts/actions/action_instants/CCHide.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_instants/CCPlace.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_instants/CCRemoveSelf.cs" Line="53" Column="14" />
-      <File FileName="Assets/Scripts/actions/action_instants/CCShow.cs" Line="39" Column="3" />
-      <File FileName="Assets/Scripts/actions/action_instants/CCToggleVisibility.cs" Line="29" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCBezierBy.cs" Line="74" Column="45" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCBlink.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/ActionExtension.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCFadeTo.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCFadeIn.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCFadeOut.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCJumpBy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCJumpTo.cs" Line="25" Column="6" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCTintBy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCRotateTo.cs" Line="138" Column="63" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCScaleBy.cs" Line="28" Column="78" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCBezierTo.cs" Line="9" Column="44" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCDelayTime.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCExtraAction.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_intervals/CCParallel.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

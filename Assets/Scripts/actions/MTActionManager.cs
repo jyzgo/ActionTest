@@ -5,40 +5,40 @@ using UnityEngine;
 
 namespace MTUnityAction
 {
-	public class CCActionManager : MonoBehaviour, IDisposable
+	public class MTActionManager : MonoBehaviour, IDisposable
     {
         internal class HashElement
         {
             public int ActionIndex;
-            public List<CCActionState> ActionStates;
-            public CCActionState CurrentActionState;
+            public List<MTActionState> ActionStates;
+            public MTActionState CurrentActionState;
             public bool CurrentActionSalvaged;
             public bool Paused;
-            public object Target;
+			public MonoBehaviour Target;
         }
 
-		static List<object> tmpKeysArray= new List<object>(128);
+		static List<MonoBehaviour> tmpKeysArray= new List<MonoBehaviour>(128);
 
-        readonly Dictionary<object, HashElement> targets = new Dictionary<object, HashElement>();
+		readonly Dictionary<MonoBehaviour, HashElement> targets = new Dictionary<MonoBehaviour, HashElement>();
 
         bool currentTargetSalvaged;
         HashElement currentTarget;
         bool targetsAvailable = false;
 
 		#region instance
-		CCActionManager()
+		MTActionManager()
 		{
 			
 		}
 
-		static CCActionManager _instance;
-		public static CCActionManager instance {
+		static MTActionManager _instance;
+		public static MTActionManager instance {
 			get{
 				if (_instance == null) {
 					GameObject curMgr = new GameObject ("ActionManager");
 					DontDestroyOnLoad (curMgr);
-					curMgr.AddComponent<CCActionManager> ();
-					_instance = curMgr.GetComponent<CCActionManager> ();
+					curMgr.AddComponent<MTActionManager> ();
+					_instance = curMgr.GetComponent<MTActionManager> ();
 
 				}
 
@@ -72,7 +72,7 @@ namespace MTUnityAction
         #region Cleaning up
 
 
-        ~CCActionManager ()
+        ~MTActionManager ()
         {
             this.Dispose(false);
         }
@@ -129,7 +129,7 @@ namespace MTUnityAction
             return null;
         }
 
-        public CCActionState GetActionState(int tag, MonoBehaviour target)
+        public MTActionState GetActionState(int tag, MonoBehaviour target)
         {
             Debug.Assert(tag != (int)CCActionTag.Invalid);
 
@@ -179,6 +179,8 @@ namespace MTUnityAction
 			float dt = Time.deltaTime;
             int count = targets.Count;
 
+			Debug.Log ("tarr count " + count);
+
 //			while (tmpKeysArray.Count < count)
 //            {
 //				tmpKeysArray = new MonoBehaviour[tmpKeysArray.Count * 2];
@@ -196,6 +198,8 @@ namespace MTUnityAction
                 {
                     continue;
                 }
+
+
 
                 currentTarget = elt;
                 currentTargetSalvaged = false;
@@ -244,10 +248,19 @@ namespace MTUnityAction
                 {
                     DeleteHashElement(currentTarget);
                 }
+
+
+				if (tmpKeysArray [i] == null || ((MonoBehaviour)tmpKeysArray [i]).gameObject == null) {
+					DeleteHashElement (currentTarget);
+				}
             }
 
             // issue #635
             currentTarget = null;
+
+//			for (int i = 0; i < toRemove.Count; i++) {
+//				
+//			}
         }
 
         internal void DeleteHashElement(HashElement element)
@@ -262,14 +275,14 @@ namespace MTUnityAction
         {
             if (element.ActionStates == null)
             {
-                element.ActionStates = new List<CCActionState>();
+                element.ActionStates = new List<MTActionState>();
             }
         }
 
 
         #region Action running
 
-        public void PauseTarget(object target)
+		public void PauseTarget(MonoBehaviour target)
         {
             HashElement element;
             if (targets.TryGetValue(target, out element))
@@ -278,7 +291,7 @@ namespace MTUnityAction
             }
         }
 
-        public void ResumeTarget(object target)
+		public void ResumeTarget(MonoBehaviour target)
         {
             HashElement element;
             if (targets.TryGetValue(target, out element))
@@ -287,9 +300,9 @@ namespace MTUnityAction
             }
         }
 
-        public List<object> PauseAllRunningActions()
+		public List<MonoBehaviour> PauseAllRunningActions()
         {
-            var idsWithActions = new List<object>();
+			var idsWithActions = new List<MonoBehaviour>();
 
 			var tarEnum = targets.GetEnumerator ();
 			while (tarEnum.MoveNext ()) {
@@ -306,7 +319,7 @@ namespace MTUnityAction
             return idsWithActions;
         }
 
-        public void ResumeTargets(List<object> targetsToResume)
+		public void ResumeTargets(List<MonoBehaviour> targetsToResume)
         {
             for (int i = 0; i < targetsToResume.Count; i++)
             {
@@ -319,7 +332,7 @@ namespace MTUnityAction
 
         #region Adding/removing actions
 
-        public CCActionState AddAction(CCAction action, MonoBehaviour target, bool paused = false)
+        public MTActionState AddAction(CCAction action, MonoBehaviour target, bool paused = false)
         {
             Debug.Assert(action != null);
             Debug.Assert(target != null);
@@ -374,7 +387,7 @@ namespace MTUnityAction
             }
         }
 
-		public void RemoveAllActionsFromTarget(object target)
+		public void RemoveAllActionsFromTarget(MonoBehaviour target)
         {
             if (target == null)
             {
@@ -402,14 +415,14 @@ namespace MTUnityAction
             }
         }
 
-        public void RemoveAction(CCActionState actionState)
+        public void RemoveAction(MTActionState actionState)
         {
             if (actionState == null || actionState.OriginalTarget == null)
             {
                 return;
             }
 
-            object target = actionState.OriginalTarget;
+			MonoBehaviour target = actionState.OriginalTarget;
             HashElement element;
             if (targets.TryGetValue(target, out element))
             {
