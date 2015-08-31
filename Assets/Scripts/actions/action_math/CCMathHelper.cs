@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public static class CCMathHelper
     {

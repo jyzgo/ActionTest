@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCRandom
     {

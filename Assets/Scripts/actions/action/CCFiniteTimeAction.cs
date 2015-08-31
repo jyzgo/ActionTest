@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public abstract class CCFiniteTimeAction : CCAction
     {

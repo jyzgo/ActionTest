@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     /// <summary>
     /// A fast random number generator for .NET

@@ -3,7 +3,7 @@ using System;
 
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public interface ICCActionTweenDelegate
     {

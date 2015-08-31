@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
 	internal static class CCSplineMath
     {
@@ -38,10 +38,11 @@ namespace CocosSharp
             float b3 = s * (t3 - 2 * t2 + t) + (-2 * t3 + 3 * t2); // s(t3 - 2 t2 + t)P3 + (-2 t3 + 3 t2)P3
             float b4 = s * (t3 - t2); // s(t3 - t2)P4
 
-            float x = (p0.X * b1 + p1.X * b2 + p2.X * b3 + p3.X * b4);
-            float y = (p0.Y * b1 + p1.Y * b2 + p2.Y * b3 + p3.Y * b4);
+            float x = (p0.x * b1 + p1.x * b2 + p2.x * b3 + p3.x * b4);
+            float y = (p0.y * b1 + p1.y * b2 + p2.y * b3 + p3.y * b4);
+			float z = (p0.z * b1 + p1.z * b2 + p2.z * b3 + p3.z * b4);
 
-            return new Vector3(x, y);
+            return new Vector3(x, y, z);
         }
 
         // Bezier cubic formula:

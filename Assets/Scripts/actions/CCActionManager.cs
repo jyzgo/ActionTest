@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
 	public class CCActionManager : MonoBehaviour, IDisposable
     {
@@ -25,7 +25,52 @@ namespace CocosSharp
         HashElement currentTarget;
         bool targetsAvailable = false;
 
+		#region instance
+		CCActionManager()
+		{
+			
+		}
+
+		static CCActionManager _instance;
+		public static CCActionManager instance {
+			get{
+				if (_instance == null) {
+					GameObject curMgr = new GameObject ("ActionManager");
+					DontDestroyOnLoad (curMgr);
+					curMgr.AddComponent<CCActionManager> ();
+					_instance = curMgr.GetComponent<CCActionManager> ();
+
+				}
+
+				return _instance;
+			}
+		}
+
+		public void init()
+		{
+			Debug.Log ("Init action");
+		}
+			
+		void Awake()
+		{
+			if(_instance == null){
+				_instance = this;
+				DontDestroyOnLoad (this);
+			}
+			else
+			{
+				if(this != _instance)
+				{
+					Destroy (this.gameObject);	
+				}
+			}
+		}
+
+
+		#endregion instance
+
         #region Cleaning up
+
 
         ~CCActionManager ()
         {
@@ -74,12 +119,12 @@ namespace CocosSharp
                             return action;
                         }
                     }
-                   Debug.Log("CocosSharp : GetActionByTag: Tag " + tag + " not found");
+                   Debug.Log("MTUnityAction : GetActionByTag: Tag " + tag + " not found");
                 }
             }
             else
             {
-               Debug.Log("CocosSharp : GetActionByTag: Target not found");
+               Debug.Log("MTUnityAction : GetActionByTag: Target not found");
             }
             return null;
         }
@@ -107,12 +152,12 @@ namespace CocosSharp
                             return actionState;
                         }
                     }
-                   Debug.Log("CocosSharp : GetActionStateByTag: Tag " + tag + " not found");
+                   Debug.Log("MTUnityAction : GetActionStateByTag: Tag " + tag + " not found");
                 }
             }
             else
             {
-               Debug.Log("CocosSharp : GetActionStateByTag: Target not found");
+               Debug.Log("MTUnityAction : GetActionStateByTag: Target not found");
             }
             return null;
         }
@@ -129,10 +174,9 @@ namespace CocosSharp
 
         public void Update()
         {
-			float dt = Time.deltaTime;
             if (!targetsAvailable)
                 return;
-
+			float dt = Time.deltaTime;
             int count = targets.Count;
 
 //			while (tmpKeysArray.Count < count)
@@ -247,14 +291,17 @@ namespace CocosSharp
         {
             var idsWithActions = new List<object>();
 
-            foreach (var element in targets.Values)
-            {
-                if (!element.Paused)
-                {
-                    element.Paused = true;
-                    idsWithActions.Add(element.Target);
-                }
-            }
+			var tarEnum = targets.GetEnumerator ();
+			while (tarEnum.MoveNext ()) {
+				var element = tarEnum.Current.Value;
+				if (!element.Paused)
+				{
+					element.Paused = true;
+					idsWithActions.Add(element.Target);
+				}
+
+			}
+
 
             return idsWithActions;
         }
@@ -289,15 +336,17 @@ namespace CocosSharp
 
             ActionAllocWithHashElement(element);
             var isActionRunning = false;
-            foreach (var existingState in element.ActionStates)
-            {
-                if (existingState.Action == action)
-                {
-                    isActionRunning = true;
-                    break;
-                }
-            }
-            Debug.Assert(!isActionRunning, "CocosSharp : Action is already running for this target.");
+
+			for (int i = 0; i < element.ActionStates.Count; i++) {
+				var existingState = element.ActionStates [i];
+				if (existingState.Action == action)
+				{
+					isActionRunning = true;
+					break;
+				}
+			}
+				
+            Debug.Assert(!isActionRunning, "MTUnityAction : Action is already running for this target.");
             var state = action.StartAction(target);
             element.ActionStates.Add(state);
 
@@ -372,12 +421,12 @@ namespace CocosSharp
                 }
                 else
                 {
-                   Debug.Log("CocosSharp: removeAction: Action not found");
+                   Debug.Log("MTUnityAction: removeAction: Action not found");
                 }
             }
             else
             {
-               Debug.Log("CocosSharp: removeAction: Target not found");
+               Debug.Log("MTUnityAction: removeAction: Target not found");
             }
         }
 
@@ -435,11 +484,11 @@ namespace CocosSharp
                 }
 
                 if (!actionFound)
-                   Debug.Log("CocosSharp : RemoveAction: Action not found");
+                   Debug.Log("MTUnityAction : RemoveAction: Action not found");
             }
             else
             {
-               Debug.Log("CocosSharp : RemoveAction: Target not found");
+               Debug.Log("MTUnityAction : RemoveAction: Target not found");
             }
 
         }
@@ -472,11 +521,11 @@ namespace CocosSharp
                 }
 
                 if (!tagFound)
-                   Debug.Log("CocosSharp : removeActionByTag: Tag " + tag + " not found");
+                   Debug.Log("MTUnityAction : removeActionByTag: Tag " + tag + " not found");
             }
             else
             {
-               Debug.Log("CocosSharp : removeActionByTag: Target not found");
+               Debug.Log("MTUnityAction : removeActionByTag: Target not found");
             }
         }
 

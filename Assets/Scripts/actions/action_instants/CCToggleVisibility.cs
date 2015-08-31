@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCToggleVisibility : CCActionInstant
     {

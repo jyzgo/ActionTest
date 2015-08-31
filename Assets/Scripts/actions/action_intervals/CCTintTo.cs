@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCTintTo : CCFiniteTimeAction
     {
@@ -49,9 +49,10 @@ namespace CocosSharp
             var protocol = Target;
             if (protocol != null)
             {
-                protocol.Color = new Color ((byte)(ColorFrom.R + (ColorTo.R - ColorFrom.R) * time),
-                    (byte)(ColorFrom.G + (ColorTo.G - ColorFrom.G) * time),
-                    (byte)(ColorFrom.B + (ColorTo.B - ColorFrom.B) * time));
+				
+				protocol.GetComponent<Renderer> ().material.color = new Color ((ColorFrom.r + (ColorTo.r - ColorFrom.r) * time),
+                    (ColorFrom.g + (ColorTo.g - ColorFrom.g) * time),
+                    (ColorFrom.b + (ColorTo.b - ColorFrom.b) * time));
             }
         }
 

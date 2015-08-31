@@ -3,7 +3,7 @@ using System;
 
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     // Extra action for making a CCSequence or CCSpawn when only adding one action to it.
     internal class CCExtraAction : CCFiniteTimeAction

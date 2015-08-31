@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
 	public class CCScaleBy : CCScaleTo
 	{
@@ -11,7 +11,7 @@ namespace CocosSharp
 		{
 		}
 
-        public CCScaleBy (float duration, float scaleX, float scaleY) : base (duration, scaleX, scaleY)
+		public CCScaleBy (float duration, float scaleX, float scaleY,float scaleZ) : base (duration, scaleX, scaleY,scaleZ)
 		{
 		}
 
@@ -25,7 +25,7 @@ namespace CocosSharp
 
 		public override CCFiniteTimeAction Reverse ()
 		{
-			return new CCScaleBy (Duration, 1 / EndScaleX, 1 / EndScaleY);
+			return new CCScaleBy (Duration, 1 / EndScaleX, 1 / EndScaleY , 1/EndScaleZ);
 		}
 
 	}
@@ -38,6 +38,7 @@ namespace CocosSharp
 		{ 
 			DeltaX = StartScaleX * EndScaleX - StartScaleX;
 			DeltaY = StartScaleY * EndScaleY - StartScaleY;
+			DeltaZ = StartScaleZ * EndScaleZ - StartScaleZ;
 		}
 
 	}

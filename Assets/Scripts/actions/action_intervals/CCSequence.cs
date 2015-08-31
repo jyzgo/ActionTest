@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCSequence : CCFiniteTimeAction
     {
@@ -26,10 +26,13 @@ namespace CocosSharp
 
             // Can't call base(duration) because we need to calculate duration here
             float combinedDuration = 0.0f;
-            foreach (CCFiniteTimeAction action in actions)
+
+            for (int i = 0 ; i < actions.Length; ++i) 
             {
+                var action = actions[i];
                 combinedDuration += action.Duration;
             }
+
             Duration = combinedDuration;
 
             if (actions.Length == 1)

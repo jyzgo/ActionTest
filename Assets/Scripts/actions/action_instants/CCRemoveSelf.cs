@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCRemoveSelf : CCActionInstant
     {

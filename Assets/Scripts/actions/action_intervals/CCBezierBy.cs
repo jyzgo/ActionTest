@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCBezierBy : CCFiniteTimeAction
     {
@@ -68,14 +68,20 @@ namespace CocosSharp
                 float yc = BezierConfig.ControlPoint2.y;
                 float yd = BezierConfig.EndPosition.y;
 
+                float za = 0;
+                float zb = BezierConfig.ControlPoint1.z;
+                float zc = BezierConfig.ControlPoint2.z;
+                float zd = BezierConfig.EndPosition.z;
+
                 float x = CCSplineMath.CubicBezier (xa, xb, xc, xd, time);
                 float y = CCSplineMath.CubicBezier (ya, yb, yc, yd, time);
+                float z = CCSplineMath.CubicBezier (za, zb, zc, zd, time);
 
 				Vector3 currentPos = Target.transform.position;
                 Vector3 diff = currentPos - PreviousPosition;
                 StartPosition = StartPosition + diff;
 
-                Vector3 newPos = StartPosition + new Vector3 (x, y);
+                Vector3 newPos = StartPosition + new Vector3 (x, y,z);
 				Target.transform.position = newPos;
 
                 PreviousPosition = newPos;

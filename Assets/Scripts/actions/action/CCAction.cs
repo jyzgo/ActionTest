@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public enum CCActionTag
     {
@@ -67,9 +67,9 @@ namespace CocosSharp
             this.Action = action;
             this.Target = target;
             this.OriginalTarget = target;
-            if (target != null)
+//            if (target != null)
 //                this.Layer = target.Layer;
-				Debug.Assert(false,"not implement");
+//				Debug.Assert(false,"not implement");
 
         }
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCPlace : CCActionInstant
     {
@@ -14,9 +14,9 @@ namespace CocosSharp
             Position = pos;
         }
 
-        public CCPlace (int posX, int posY)
+        public CCPlace (int posX, int posY , int posZ)
         {
-            Position = new Vector3 (posX, posY);
+            Position = new Vector3 (posX, posY,posZ);
         }
 
         #endregion Constructors

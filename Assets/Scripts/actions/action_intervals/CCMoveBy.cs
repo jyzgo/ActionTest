@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCMoveBy : CCFiniteTimeAction
     {
@@ -22,7 +22,7 @@ namespace CocosSharp
 
         public override CCFiniteTimeAction Reverse ()
         {
-            return new CCMoveBy (Duration, new Vector3 (-PositionDelta.x, -PositionDelta.y));
+			return new CCMoveBy (Duration, new Vector3 (-PositionDelta.x, -PositionDelta.y,-PositionDelta.z));
         }
     }
 

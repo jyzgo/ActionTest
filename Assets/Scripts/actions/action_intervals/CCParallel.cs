@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCParallel : CCFiniteTimeAction
     {
@@ -15,13 +15,18 @@ namespace CocosSharp
         {
             // Can't call base(duration) because max action duration needs to be determined here
             float maxDuration = 0.0f;
-            foreach (CCFiniteTimeAction action in actions)
+
+
+            for (int i = 0; i < actions.Length; ++i) 
             {
+                var action = actions[i];
                 if (action.Duration > maxDuration)
                 {
                     maxDuration = action.Duration;
                 }
             }
+
+
             Duration = maxDuration;
 
             Actions = actions;

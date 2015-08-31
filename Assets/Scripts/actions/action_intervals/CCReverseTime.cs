@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCReverseTime : CCFiniteTimeAction
     {

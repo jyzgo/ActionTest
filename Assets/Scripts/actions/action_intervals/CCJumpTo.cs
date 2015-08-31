@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCJumpTo : CCJumpBy
     {
@@ -27,7 +27,7 @@ namespace CocosSharp
         public CCJumpToState (CCJumpBy action, MonoBehaviour target)
             : base (action, target)
         { 
-            Delta = new Vector3 (Delta.x - StartPosition.x, Delta.y - StartPosition.y);
+			Delta = new Vector3 (Delta.x - StartPosition.x, Delta.y - StartPosition.y,Delta.z - StartPosition.z);
         }
     }
 

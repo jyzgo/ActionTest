@@ -1,6 +1,6 @@
 using System;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
 	internal static class CCEaseMath
     {

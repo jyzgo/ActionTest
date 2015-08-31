@@ -5,7 +5,7 @@ using System;
 
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCEaseElasticIn : CCEaseElastic
     {

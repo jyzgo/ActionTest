@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CocosSharp
+namespace MTUnityAction
 {
     public class CCJumpBy : CCFiniteTimeAction
     {   
@@ -31,7 +31,7 @@ namespace CocosSharp
 
         public override CCFiniteTimeAction Reverse ()
         {
-            return new CCJumpBy (Duration, new Vector3 (-Position.x, -Position.y), Height, Jumps);
+            return new CCJumpBy (Duration, new Vector3 (-Position.x, -Position.y,-Position.z), Height, Jumps);
         }
     }
 
@@ -67,7 +67,7 @@ namespace CocosSharp
                 Vector3 diff = currentPos - P;
                 StartPosition = diff + StartPosition;
 
-                Vector3 newPos = StartPosition + new Vector3 (x, y);
+				Vector3 newPos = StartPosition + new Vector3 (x, y,currentPos.z);
 				Target.transform.position = newPos;
 
                 P = newPos;
