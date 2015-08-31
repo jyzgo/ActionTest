@@ -19,7 +19,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCBezierByState (this, target);
 
@@ -47,7 +47,7 @@ namespace MTUnityAction
         protected Vector3 PreviousPosition { get; set; }
 
 
-        public CCBezierByState (CCBezierBy action, MonoBehaviour target)
+        public CCBezierByState (CCBezierBy action, GameObject target)
             : base (action, target)
         { 
             BezierConfig = action.BezierConfig;

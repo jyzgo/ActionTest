@@ -15,7 +15,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCEaseExponentialOutState (this, target);
         }
@@ -31,7 +31,7 @@ namespace MTUnityAction
 
     public class CCEaseExponentialOutState : CCActionEaseState
     {
-        public CCEaseExponentialOutState (CCEaseExponentialOut action, MonoBehaviour target) : base (action, target)
+        public CCEaseExponentialOutState (CCEaseExponentialOut action, GameObject target) : base (action, target)
         {
         }
 

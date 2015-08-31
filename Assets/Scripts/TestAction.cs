@@ -9,7 +9,7 @@ public class TestAction : MonoBehaviour {
 		MTActionManager.instance.init ();
 
 		var moveTo = new CCMoveTo (12, new Vector3 (10, 10, 10));
-		this.RunAction (moveTo);
+		this.gameObject.RunAction (moveTo);
 
 	}
 	

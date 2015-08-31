@@ -29,7 +29,7 @@ namespace MTUnityAction
             throw new System.NotImplementedException ();
         }
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCScaleToState (this, target);
         }
@@ -49,7 +49,7 @@ namespace MTUnityAction
         protected float StartScaleY;
 		protected float StartScaleZ;
 
-        public CCScaleToState (CCScaleTo action, MonoBehaviour target)
+        public CCScaleToState (CCScaleTo action, GameObject target)
             : base (action, target)
         { 
 			StartScaleX = target.transform.localScale.x;

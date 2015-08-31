@@ -12,7 +12,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCShowState (this, target);
 
@@ -28,7 +28,7 @@ namespace MTUnityAction
     public class CCShowState : CCActionInstantState
     {
 
-        public CCShowState (CCShow action, MonoBehaviour target)
+        public CCShowState (CCShow action, GameObject target)
             : base (action, target)
         {   
 			var render = target.GetComponent<Renderer> ();

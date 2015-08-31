@@ -24,7 +24,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCJumpByState (this, target);
         }
@@ -43,7 +43,7 @@ namespace MTUnityAction
         protected Vector3 StartPosition;
         protected Vector3 P;
 
-        public CCJumpByState (CCJumpBy action, MonoBehaviour target)
+        public CCJumpByState (CCJumpBy action, GameObject target)
             : base (action, target)
         { 
 			Delta = action.Position;

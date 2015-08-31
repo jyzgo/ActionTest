@@ -49,7 +49,7 @@ namespace MTUnityAction
 
         public abstract CCFiniteTimeAction Reverse();
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCFiniteTimeActionState (this, target);
         }
@@ -72,7 +72,7 @@ namespace MTUnityAction
         #endregion Properties
 
 
-        public CCFiniteTimeActionState (CCFiniteTimeAction action, MonoBehaviour target)
+        public CCFiniteTimeActionState (CCFiniteTimeAction action, GameObject target)
             : base (action, target)
         { 
             Duration = action.Duration;

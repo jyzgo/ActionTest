@@ -23,7 +23,7 @@ namespace MTUnityAction
         #endregion Constructor
 
 
-        protected internal virtual MTActionState StartAction (MonoBehaviour target)
+        protected internal virtual MTActionState StartAction (GameObject target)
         {
             return null;
 
@@ -43,8 +43,8 @@ namespace MTUnityAction
 
         #region Properties
 
-        public MonoBehaviour Target { get; protected set; }
-        public MonoBehaviour OriginalTarget { get; protected set; }
+        public GameObject Target { get; protected set; }
+        public GameObject OriginalTarget { get; protected set; }
         public CCAction Action { get; protected set; }
 
 //        protected CCScene Scene { get; private set; }
@@ -62,7 +62,7 @@ namespace MTUnityAction
         #endregion Properties
 
 
-        public MTActionState (CCAction action, MonoBehaviour target)
+        public MTActionState (CCAction action, GameObject target)
         {
             this.Action = action;
             this.Target = target;

@@ -19,7 +19,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCFadeToState (this, target);
 
@@ -37,7 +37,7 @@ namespace MTUnityAction
 
 		protected float ToOpacity { get; set; }
 
-        public CCFadeToState (CCFadeTo action, MonoBehaviour target)
+        public CCFadeToState (CCFadeTo action, GameObject target)
             : base (action, target)
         {              
             ToOpacity = action.ToOpacity;

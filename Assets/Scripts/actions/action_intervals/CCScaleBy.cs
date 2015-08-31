@@ -17,7 +17,7 @@ namespace MTUnityAction
 
 		#endregion Constructors
 
-		protected internal override MTActionState StartAction(MonoBehaviour target)
+		protected internal override MTActionState StartAction(GameObject target)
 		{
 			return new CCScaleByState (this, target);
 
@@ -33,7 +33,7 @@ namespace MTUnityAction
     public class CCScaleByState : CCScaleToState
 	{
 
-		public CCScaleByState (CCScaleTo action, MonoBehaviour target)
+		public CCScaleByState (CCScaleTo action, GameObject target)
 			: base (action, target)
 		{ 
 			DeltaX = StartScaleX * EndScaleX - StartScaleX;

@@ -22,7 +22,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCEaseElasticInOutState (this, target);
         }
@@ -38,7 +38,7 @@ namespace MTUnityAction
 
     public class CCEaseElasticInOutState : CCEaseElasticState
     {
-        public CCEaseElasticInOutState (CCEaseElasticInOut action, MonoBehaviour target) : base (action, target)
+        public CCEaseElasticInOutState (CCEaseElasticInOut action, GameObject target) : base (action, target)
         {
         }
 

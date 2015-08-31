@@ -64,7 +64,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCSequenceState (this, target);
 
@@ -84,7 +84,7 @@ namespace MTUnityAction
         protected float split;
         private bool hasInfiniteAction = false;
 
-        public CCSequenceState (CCSequence action, MonoBehaviour target)
+        public CCSequenceState (CCSequence action, GameObject target)
             : base (action, target)
         { 
             actionSequences = action.Actions;

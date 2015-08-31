@@ -72,7 +72,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCSpawnState (this, target);
 
@@ -95,7 +95,7 @@ namespace MTUnityAction
 
         private CCFiniteTimeActionState ActionStateTwo { get; set; }
 
-        public CCSpawnState (CCSpawn action, MonoBehaviour target)
+        public CCSpawnState (CCSpawn action, GameObject target)
             : base (action, target)
         { 
             ActionOne = action.ActionOne;

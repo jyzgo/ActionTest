@@ -14,12 +14,12 @@ namespace MTUnityAction
             public MTActionState CurrentActionState;
             public bool CurrentActionSalvaged;
             public bool Paused;
-			public MonoBehaviour Target;
+			public GameObject Target;
         }
 
-		static List<MonoBehaviour> tmpKeysArray= new List<MonoBehaviour>(128);
+		static List<GameObject> tmpKeysArray= new List<GameObject>(128);
 
-		readonly Dictionary<MonoBehaviour, HashElement> targets = new Dictionary<MonoBehaviour, HashElement>();
+		readonly Dictionary<GameObject, HashElement> targets = new Dictionary<GameObject, HashElement>();
 
         bool currentTargetSalvaged;
         HashElement currentTarget;
@@ -96,7 +96,7 @@ namespace MTUnityAction
 
         #endregion Cleaning up
 
-        public CCAction GetAction(int tag, MonoBehaviour target)
+        public CCAction GetAction(int tag, GameObject target)
         {
             Debug.Assert(tag != (int)CCActionTag.Invalid);
 
@@ -129,7 +129,7 @@ namespace MTUnityAction
             return null;
         }
 
-        public MTActionState GetActionState(int tag, MonoBehaviour target)
+        public MTActionState GetActionState(int tag, GameObject target)
         {
             Debug.Assert(tag != (int)CCActionTag.Invalid);
 
@@ -162,7 +162,7 @@ namespace MTUnityAction
             return null;
         }
 
-        public int NumberOfRunningActionsInTarget(MonoBehaviour target)
+        public int NumberOfRunningActionsInTarget(GameObject target)
         {
             HashElement element;
             if (targets.TryGetValue(target, out element))
@@ -179,11 +179,11 @@ namespace MTUnityAction
 			float dt = Time.deltaTime;
             int count = targets.Count;
 
-			Debug.Log ("tarr count " + count);
+//			Debug.Log ("tarr count " + count);
 
 //			while (tmpKeysArray.Count < count)
 //            {
-//				tmpKeysArray = new MonoBehaviour[tmpKeysArray.Count * 2];
+//				tmpKeysArray = new GameObject[tmpKeysArray.Count * 2];
 //            }
 //            targets.Keys.CopyTo(tmpKeysArray, 0);
 
@@ -250,7 +250,7 @@ namespace MTUnityAction
                 }
 
 
-				if (tmpKeysArray [i] == null || ((MonoBehaviour)tmpKeysArray [i]).gameObject == null) {
+				if (tmpKeysArray [i] == null || ((GameObject)tmpKeysArray [i]).gameObject == null) {
 					DeleteHashElement (currentTarget);
 				}
             }
@@ -282,7 +282,7 @@ namespace MTUnityAction
 
         #region Action running
 
-		public void PauseTarget(MonoBehaviour target)
+		public void PauseTarget(GameObject target)
         {
             HashElement element;
             if (targets.TryGetValue(target, out element))
@@ -291,7 +291,7 @@ namespace MTUnityAction
             }
         }
 
-		public void ResumeTarget(MonoBehaviour target)
+		public void ResumeTarget(GameObject target)
         {
             HashElement element;
             if (targets.TryGetValue(target, out element))
@@ -300,9 +300,9 @@ namespace MTUnityAction
             }
         }
 
-		public List<MonoBehaviour> PauseAllRunningActions()
+		public List<GameObject> PauseAllRunningActions()
         {
-			var idsWithActions = new List<MonoBehaviour>();
+			var idsWithActions = new List<GameObject>();
 
 			var tarEnum = targets.GetEnumerator ();
 			while (tarEnum.MoveNext ()) {
@@ -319,7 +319,7 @@ namespace MTUnityAction
             return idsWithActions;
         }
 
-		public void ResumeTargets(List<MonoBehaviour> targetsToResume)
+		public void ResumeTargets(List<GameObject> targetsToResume)
         {
             for (int i = 0; i < targetsToResume.Count; i++)
             {
@@ -332,7 +332,7 @@ namespace MTUnityAction
 
         #region Adding/removing actions
 
-        public MTActionState AddAction(CCAction action, MonoBehaviour target, bool paused = false)
+        public MTActionState AddAction(CCAction action, GameObject target, bool paused = false)
         {
             Debug.Assert(action != null);
             Debug.Assert(target != null);
@@ -374,7 +374,7 @@ namespace MTUnityAction
             int count = targets.Count;
 //			if (tmpKeysArray.Count < count)
 //            {
-//                tmpKeysArray = new MonoBehaviour[tmpKeysArray.Length * 2];
+//                tmpKeysArray = new GameObject[tmpKeysArray.Length * 2];
 //            }
 
 //            targets.Keys.CopyTo(tmpKeysArray, 0);
@@ -387,7 +387,7 @@ namespace MTUnityAction
             }
         }
 
-		public void RemoveAllActionsFromTarget(MonoBehaviour target)
+		public void RemoveAllActionsFromTarget(GameObject target)
         {
             if (target == null)
             {
@@ -422,7 +422,7 @@ namespace MTUnityAction
                 return;
             }
 
-			MonoBehaviour target = actionState.OriginalTarget;
+			GameObject target = actionState.OriginalTarget;
             HashElement element;
             if (targets.TryGetValue(target, out element))
             {
@@ -473,7 +473,7 @@ namespace MTUnityAction
             }
         }
 
-        internal void RemoveAction(CCAction action, MonoBehaviour target)
+        internal void RemoveAction(CCAction action, GameObject target)
         {
             if (action == null || target == null)
                 return;
@@ -506,7 +506,7 @@ namespace MTUnityAction
 
         }
 
-        public void RemoveAction(int tag, MonoBehaviour target)
+        public void RemoveAction(int tag, GameObject target)
         {
             Debug.Assert((tag != (int)CCActionTag.Invalid));
             Debug.Assert(target != null);

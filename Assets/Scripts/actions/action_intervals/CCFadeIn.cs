@@ -13,7 +13,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCFadeInState (this, target);
 
@@ -32,7 +32,7 @@ namespace MTUnityAction
 
         protected bool OriginalState { get; set; }
 
-        public CCFadeInState (CCFadeIn action, MonoBehaviour target)
+        public CCFadeInState (CCFadeIn action, GameObject target)
             : base (action, target)
         {
         }

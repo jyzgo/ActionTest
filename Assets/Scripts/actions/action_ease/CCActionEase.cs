@@ -17,7 +17,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCActionEaseState (this, target);
         }
@@ -35,7 +35,7 @@ namespace MTUnityAction
     {
         protected CCFiniteTimeActionState InnerActionState { get; private set; }
 
-        public CCActionEaseState (CCActionEase action, MonoBehaviour target) : base (action, target)
+        public CCActionEaseState (CCActionEase action, GameObject target) : base (action, target)
         {
             InnerActionState = (CCFiniteTimeActionState)action.InnerAction.StartAction (target);
         }

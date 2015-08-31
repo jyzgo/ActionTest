@@ -14,7 +14,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCBezierToState (this, target);
 
@@ -25,7 +25,7 @@ namespace MTUnityAction
     public class CCBezierToState : CCBezierByState
     {
 
-        public CCBezierToState (CCBezierBy action, MonoBehaviour target)
+        public CCBezierToState (CCBezierBy action, GameObject target)
             : base (action, target)
         { 
             var config = BezierConfig;

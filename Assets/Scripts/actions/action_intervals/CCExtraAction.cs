@@ -13,7 +13,7 @@ namespace MTUnityAction
             return new CCExtraAction ();
         }
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCExtraActionState (this, target);
 
@@ -24,7 +24,7 @@ namespace MTUnityAction
         public class CCExtraActionState : CCFiniteTimeActionState
         {
 
-            public CCExtraActionState (CCExtraAction action, MonoBehaviour target)
+            public CCExtraActionState (CCExtraAction action, GameObject target)
                 : base (action, target)
             {
             }

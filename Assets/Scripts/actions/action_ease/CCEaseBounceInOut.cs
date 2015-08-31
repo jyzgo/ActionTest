@@ -13,7 +13,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCEaseBounceInOutState (this, target);
         }
@@ -29,7 +29,7 @@ namespace MTUnityAction
 
     public class CCEaseBounceInOutState : CCActionEaseState
     {
-        public CCEaseBounceInOutState (CCEaseBounceInOut action, MonoBehaviour target) : base (action, target)
+        public CCEaseBounceInOutState (CCEaseBounceInOut action, GameObject target) : base (action, target)
         {
         }
 

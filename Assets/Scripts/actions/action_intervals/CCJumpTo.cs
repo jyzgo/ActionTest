@@ -13,7 +13,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCJumpToState (this, target);
 
@@ -24,7 +24,7 @@ namespace MTUnityAction
     public class CCJumpToState : CCJumpByState
     {
 
-        public CCJumpToState (CCJumpBy action, MonoBehaviour target)
+        public CCJumpToState (CCJumpBy action, GameObject target)
             : base (action, target)
         { 
 			Delta = new Vector3 (Delta.x - StartPosition.x, Delta.y - StartPosition.y,Delta.z - StartPosition.z);

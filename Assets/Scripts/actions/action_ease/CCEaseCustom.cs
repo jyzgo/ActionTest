@@ -19,7 +19,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCEaseCustomState (this, target);
         }
@@ -37,7 +37,7 @@ namespace MTUnityAction
     {
         protected Func<float, float> EaseFunc { get; private set; }
 
-        public CCEaseCustomState (CCEaseCustom action, MonoBehaviour target) : base (action, target)
+        public CCEaseCustomState (CCEaseCustom action, GameObject target) : base (action, target)
         {
             EaseFunc = action.EaseFunc;
         }

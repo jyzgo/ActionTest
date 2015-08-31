@@ -15,7 +15,7 @@ namespace MTUnityAction
 
         public Vector3 PositionDelta { get; private set; }
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCMoveByState (this, target);
         }
@@ -33,7 +33,7 @@ namespace MTUnityAction
         protected Vector3 StartPosition;
         protected Vector3 PreviousPosition;
 
-        public CCMoveByState (CCMoveBy action, MonoBehaviour target)
+        public CCMoveByState (CCMoveBy action, GameObject target)
             : base (action, target)
         { 
 			PositionDelta = action.PositionDelta;

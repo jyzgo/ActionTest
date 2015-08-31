@@ -17,7 +17,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCBlinkState (this, target);
 
@@ -36,7 +36,7 @@ namespace MTUnityAction
 
         protected bool OriginalState { get; set; }
 
-        public CCBlinkState (CCBlink action, MonoBehaviour target)
+        public CCBlinkState (CCBlink action, GameObject target)
             : base (action, target)
         { 
             Times = action.Times;

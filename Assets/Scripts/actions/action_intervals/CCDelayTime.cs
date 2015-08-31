@@ -12,7 +12,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCDelayTimeState (this, target);
 
@@ -27,7 +27,7 @@ namespace MTUnityAction
     public class CCDelayTimeState : CCFiniteTimeActionState
     {
 
-        public CCDelayTimeState (CCDelayTime action, MonoBehaviour target)
+        public CCDelayTimeState (CCDelayTime action, GameObject target)
             : base (action, target)
         {
         }

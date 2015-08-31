@@ -44,7 +44,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCParallelState (this, target);
 
@@ -70,7 +70,7 @@ namespace MTUnityAction
 
         protected CCFiniteTimeActionState[] ActionStates { get; set; }
 
-        public CCParallelState (CCParallel action, MonoBehaviour target)
+        public CCParallelState (CCParallel action, GameObject target)
             : base (action, target)
         {   
             Actions = action.Actions;

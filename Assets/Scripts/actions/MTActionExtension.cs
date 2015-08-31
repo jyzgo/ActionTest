@@ -5,20 +5,20 @@ namespace MTUnityAction{
 public static class MTActionExtension  {
 
 
-	// public static CCAction runAction(this MonoBehaviour target,CCAction action)
+	// public static CCAction runAction(this GameObject target,CCAction action)
 	// {
 	// 	CCCCActionManager.instance.instance.addAction(action,target,false);
 	// 	return action;
 	// }
 
-	// public static CCAction stopAction(this MonoBehaviour target,CCAction action)
+	// public static CCAction stopAction(this GameObject target,CCAction action)
 	// {
 	// 	CCCCActionManager.instance.instance.removeAction(target,action);
 	// 	return action;
 	// }
     #region Actions
 
-	public static bool IsRunning(this MonoBehaviour target)
+	public static bool IsRunning(this GameObject target)
 	{
 		bool isActive = false;
 		if (target && target.gameObject && target.gameObject.activeInHierarchy) {
@@ -27,41 +27,41 @@ public static class MTActionExtension  {
 		return isActive;
 	}
 
-    public static void AddAction(this MonoBehaviour target,CCAction action, bool paused = false)
+    public static void AddAction(this GameObject target,CCAction action, bool paused = false)
     {
 		if (MTActionManager.instance != null)
 				MTActionManager.instance.AddAction(action, target, paused);
 
     }
 
-	public static void AddActions(this MonoBehaviour target,bool paused, params CCFiniteTimeAction[] actions)
+	public static void AddActions(this GameObject target,bool paused, params CCFiniteTimeAction[] actions)
     {
 		if (MTActionManager.instance != null)
 				MTActionManager.instance.AddAction(new CCSequence(actions), target, paused);
 
     }
 
-	public static MTActionState Repeat(this MonoBehaviour target, uint times, params CCFiniteTimeAction[] actions)
+	public static MTActionState Repeat(this GameObject target, uint times, params CCFiniteTimeAction[] actions)
     {
 			return target.RunAction (new CCRepeat (new CCSequence(actions), times));
     }
 
-	public static MTActionState Repeat (this MonoBehaviour target, uint times, CCFiniteTimeAction action)
+	public static MTActionState Repeat (this GameObject target, uint times, CCFiniteTimeAction action)
     {
         return  target.RunAction (new CCRepeat (action, times));
     }
 
-	public static MTActionState RepeatForever(this MonoBehaviour target, params CCFiniteTimeAction[] actions)
+	public static MTActionState RepeatForever(this GameObject target, params CCFiniteTimeAction[] actions)
     {
         return target.RunAction(new CCRepeatForever (actions));
     }
 
-	public static MTActionState RepeatForever(this MonoBehaviour target, CCFiniteTimeAction action)
+	public static MTActionState RepeatForever(this GameObject target, CCFiniteTimeAction action)
     {
         return target.RunAction(new CCRepeatForever (action) { Tag = action.Tag });
     }
 
-	public static MTActionState RunAction(this MonoBehaviour target, CCAction action)
+	public static MTActionState RunAction(this GameObject target, CCAction action)
     {
         Debug.Assert(action != null, "Argument must be non-nil");
 		
@@ -71,7 +71,7 @@ public static class MTActionExtension  {
 
 
 
-    public static MTActionState RunActions(this MonoBehaviour target, params CCFiniteTimeAction[] actions)
+    public static MTActionState RunActions(this GameObject target, params CCFiniteTimeAction[] actions)
     {
         Debug.Assert(actions != null, "Argument must be non-nil");
 		Debug.Assert(actions.Length > 0, "Paremeter: actions has length of zero. At least one action must be set to run.");
@@ -85,31 +85,31 @@ public static class MTActionExtension  {
 
 
 
-    public static void StopAllActions(this MonoBehaviour target)
+    public static void StopAllActions(this GameObject target)
     {
         if(MTActionManager.instance != null)
             MTActionManager.instance.RemoveAllActionsFromTarget(target);
     }
 
-    public static void StopAction(this MonoBehaviour target, MTActionState actionState)
+    public static void StopAction(this GameObject target, MTActionState actionState)
     {
         if(MTActionManager.instance != null)
             MTActionManager.instance.RemoveAction(actionState);
     }
 
-	public static void StopAction(this MonoBehaviour target, int tag)
+	public static void StopAction(this GameObject target, int tag)
     {
         Debug.Assert(tag != -1, "Invalid tag");
 			MTActionManager.instance.RemoveAction(tag, target);
     }
 
-		public static CCAction GetAction(this MonoBehaviour target, int tag)
+		public static CCAction GetAction(this GameObject target, int tag)
     {
         Debug.Assert(tag != -1, "Invalid tag");
 			return MTActionManager.instance.GetAction(tag, target);
     }
 
-    public static MTActionState GetActionState(this MonoBehaviour target, int tag)
+    public static MTActionState GetActionState(this GameObject target, int tag)
     {
         Debug.Assert(tag != -1, "Invalid tag");
         return MTActionManager.instance.GetActionState(tag, target);
@@ -117,7 +117,7 @@ public static class MTActionExtension  {
 
     #endregion Actions
 
-	public static bool getVisible(this MonoBehaviour target)
+	public static bool getVisible(this GameObject target)
 	{
 		if (target) 
 		{
@@ -131,7 +131,7 @@ public static class MTActionExtension  {
 		return false;
 	}
 
-	public static void setVisible(this MonoBehaviour target ,bool curVis)
+	public static void setVisible(this GameObject target ,bool curVis)
 	{
 		if (target) 
 		{
@@ -143,7 +143,7 @@ public static class MTActionExtension  {
 		}
 	}
 
-	public static float getOpacity(this MonoBehaviour target)
+	public static float getOpacity(this GameObject target)
 	{
 		if (target) 
 		{
@@ -157,7 +157,7 @@ public static class MTActionExtension  {
 		return 0f;
 	}
 
-	public static void setOpacity(this MonoBehaviour target,float curA)
+	public static void setOpacity(this GameObject target,float curA)
 	{
 		if (target) 
 		{
@@ -173,7 +173,7 @@ public static class MTActionExtension  {
 		}
 	}
 
-	public static Color getColor(this MonoBehaviour target)
+	public static Color getColor(this GameObject target)
 	{
 
 		if (target) 
@@ -190,7 +190,7 @@ public static class MTActionExtension  {
 		return new Color();
 	}
 
-	public static void setColor(this MonoBehaviour target, Color curColor)
+	public static void setColor(this GameObject target, Color curColor)
 	{
 		if (target) 
 		{

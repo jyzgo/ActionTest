@@ -25,7 +25,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCCallFuncState (this, target);
 
@@ -39,7 +39,7 @@ namespace MTUnityAction
         protected Action CallFunction { get; set;}
         protected string ScriptFuncName { get; set; }
 
-        public CCCallFuncState (CCCallFunc action, MonoBehaviour target)
+        public CCCallFuncState (CCCallFunc action, GameObject target)
             : base(action, target)
         {   
             CallFunction = action.CallFunction;

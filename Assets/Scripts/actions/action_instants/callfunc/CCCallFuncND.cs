@@ -6,13 +6,13 @@ namespace MTUnityAction
 {
     public class CCCallFuncND : CCCallFuncN
     {
-        public Action<MonoBehaviour, object> CallFunctionND { get; private set; }
+        public Action<GameObject, object> CallFunctionND { get; private set; }
         public object Data { get; private set; }
 
 
         #region Constructors
 
-        public CCCallFuncND(Action<MonoBehaviour, object> selector, object d) : base()
+        public CCCallFuncND(Action<GameObject, object> selector, object d) : base()
         {
             Data = d;
             CallFunctionND = selector;
@@ -21,7 +21,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCCallFuncNDState (this, target);
 
@@ -30,10 +30,10 @@ namespace MTUnityAction
 
     public class CCCallFuncNDState : CCCallFuncState
     {
-        protected Action<MonoBehaviour, object> CallFunctionND { get; set; }
+        protected Action<GameObject, object> CallFunctionND { get; set; }
         protected object Data { get; set; }
 
-        public CCCallFuncNDState (CCCallFuncND action, MonoBehaviour target)
+        public CCCallFuncNDState (CCCallFuncND action, GameObject target)
             : base(action, target)
         {   
             CallFunctionND = action.CallFunctionND;

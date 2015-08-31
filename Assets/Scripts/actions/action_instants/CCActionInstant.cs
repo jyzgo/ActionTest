@@ -13,7 +13,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCActionInstantState (this, target);
 
@@ -28,7 +28,7 @@ namespace MTUnityAction
     public class CCActionInstantState : CCFiniteTimeActionState
     {
 
-        public CCActionInstantState (CCActionInstant action, MonoBehaviour target)
+        public CCActionInstantState (CCActionInstant action, GameObject target)
             : base (action, target)
         {
         }

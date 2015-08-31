@@ -6,7 +6,7 @@ namespace MTUnityAction
 {
     public class CCCallFuncN : CCCallFunc
     {
-        public Action<MonoBehaviour> CallFunctionN { get; private set; }
+        public Action<GameObject> CallFunctionN { get; private set; }
 
         #region Constructors
 
@@ -14,7 +14,7 @@ namespace MTUnityAction
         {
         }
 
-        public CCCallFuncN(Action<MonoBehaviour> selector) : base()
+        public CCCallFuncN(Action<GameObject> selector) : base()
         {
             CallFunctionN = selector;
         }
@@ -22,7 +22,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCCallFuncNState (this, target);
 
@@ -33,9 +33,9 @@ namespace MTUnityAction
     public class CCCallFuncNState : CCCallFuncState
     {
 
-        protected Action<MonoBehaviour> CallFunctionN { get; set; }
+        protected Action<GameObject> CallFunctionN { get; set; }
 
-        public CCCallFuncNState (CCCallFuncN action, MonoBehaviour target)
+        public CCCallFuncNState (CCCallFuncN action, GameObject target)
             : base(action, target)
         {   
             CallFunctionN = action.CallFunctionN;
@@ -48,7 +48,7 @@ namespace MTUnityAction
                 CallFunctionN(Target);
             }
             //if (m_nScriptHandler) {
-            //    CCScriptEngineManager::sharedManager()->getScriptEngine()->executeFunctionWithobject(m_nScriptHandler, m_pTarget, "MonoBehaviour");
+            //    CCScriptEngineManager::sharedManager()->getScriptEngine()->executeFunctionWithobject(m_nScriptHandler, m_pTarget, "GameObject");
             //}
         }
 

@@ -26,7 +26,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCRotateToState (this, target);
         }
@@ -54,7 +54,7 @@ namespace MTUnityAction
         protected float StartAngleY;
 		protected float StartAngleZ;
 
-        public CCRotateToState (CCRotateTo action, MonoBehaviour target)
+        public CCRotateToState (CCRotateTo action, GameObject target)
             : base (action, target)
         { 
             DistanceAngleX = action.DistanceAngleX;

@@ -26,7 +26,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCRepeatForeverState (this, target);
 
@@ -45,7 +45,7 @@ namespace MTUnityAction
 
         private CCFiniteTimeActionState InnerActionState { get; set; }
 
-        public CCRepeatForeverState (CCRepeatForever action, MonoBehaviour target)
+        public CCRepeatForeverState (CCRepeatForever action, GameObject target)
             : base (action, target)
         { 
             InnerAction = action.InnerAction;

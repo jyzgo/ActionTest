@@ -19,7 +19,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCReverseTimeState (this, target);
 
@@ -38,7 +38,7 @@ namespace MTUnityAction
 
         protected CCFiniteTimeActionState OtherState { get; set; }
 
-        public CCReverseTimeState (CCReverseTime action, MonoBehaviour target)
+        public CCReverseTimeState (CCReverseTime action, GameObject target)
             : base (action, target)
         {   
             Other = action.Other;

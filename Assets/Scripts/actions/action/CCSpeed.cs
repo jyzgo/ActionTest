@@ -20,7 +20,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCSpeedState (this, target);
         }
@@ -50,7 +50,7 @@ namespace MTUnityAction
         #endregion Properties
 
 
-        public CCSpeedState (CCSpeed action, MonoBehaviour target) : base (action, target)
+        public CCSpeedState (CCSpeed action, GameObject target) : base (action, target)
         {
             InnerActionState = (CCFiniteTimeActionState)action.InnerAction.StartAction (target);
             Speed = action.Speed;

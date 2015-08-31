@@ -27,7 +27,7 @@ namespace MTUnityAction
         protected float Amplitude { get; private set; }
         protected internal float AmplitudeRate { get; set; }
 
-        public CCAmplitudeActionState (CCAmplitudeAction action, MonoBehaviour target) : base (action, target)
+        public CCAmplitudeActionState (CCAmplitudeAction action, GameObject target) : base (action, target)
         {
             Amplitude = action.Amplitude;
             AmplitudeRate = 1.0f;

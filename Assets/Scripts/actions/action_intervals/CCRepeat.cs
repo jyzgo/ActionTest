@@ -33,7 +33,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCRepeatState (this, target);
 
@@ -60,7 +60,7 @@ namespace MTUnityAction
 
         protected uint Total { get; set; }
 
-        public CCRepeatState (CCRepeat action, MonoBehaviour target)
+        public CCRepeatState (CCRepeat action, GameObject target)
             : base (action, target)
         { 
 

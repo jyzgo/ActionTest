@@ -21,7 +21,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCPlaceState (this, target);
 
@@ -31,7 +31,7 @@ namespace MTUnityAction
     public class CCPlaceState : CCActionInstantState
     {
 
-        public CCPlaceState (CCPlace action, MonoBehaviour target)
+        public CCPlaceState (CCPlace action, GameObject target)
             : base (action, target)
         { 
 			Target.transform.position = action.Position;

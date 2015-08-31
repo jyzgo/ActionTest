@@ -22,7 +22,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCTintByState (this, target);
         }
@@ -48,7 +48,7 @@ namespace MTUnityAction
 
         protected float FromR { get; set; }
 
-        public CCTintByState (CCTintBy action, MonoBehaviour target)
+        public CCTintByState (CCTintBy action, GameObject target)
             : base (action, target)
         {   
             DeltaB = action.DeltaB;

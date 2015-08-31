@@ -19,7 +19,7 @@ namespace MTUnityAction
             get { return EndPosition; }
         }
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCMoveToState (this, target);
 
@@ -29,7 +29,7 @@ namespace MTUnityAction
     public class CCMoveToState : CCMoveByState
     {
 
-        public CCMoveToState (CCMoveTo action, MonoBehaviour target)
+        public CCMoveToState (CCMoveTo action, GameObject target)
             : base (action, target)
         { 
 			StartPosition = target.transform.position;

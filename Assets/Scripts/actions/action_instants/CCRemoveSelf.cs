@@ -24,7 +24,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCRemoveSelfState (this, target);
 
@@ -41,7 +41,7 @@ namespace MTUnityAction
     {
         protected bool IsNeedCleanUp { get; set; }
 
-        public CCRemoveSelfState (CCRemoveSelf action, MonoBehaviour target)
+        public CCRemoveSelfState (CCRemoveSelf action, GameObject target)
             : base (action, target)
         {   
             IsNeedCleanUp = action.IsNeedCleanUp;

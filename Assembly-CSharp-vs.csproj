@@ -85,7 +85,6 @@
      <Compile Include="Assets\Scripts\actions\action_instants\callfunc\CCCallFuncN.cs" />
      <Compile Include="Assets\Scripts\actions\action_instants\callfunc\CCCallFuncND.cs" />
      <Compile Include="Assets\Scripts\actions\action_instants\callfunc\CCCallFuncO.cs" />
-     <Compile Include="Assets\Scripts\actions\action_intervals\CCActionTween.cs" />
      <Compile Include="Assets\Scripts\actions\action_intervals\CCBezierBy.cs" />
      <Compile Include="Assets\Scripts\actions\action_intervals\CCBezierTo.cs" />
      <Compile Include="Assets\Scripts\actions\action_intervals\CCBlink.cs" />

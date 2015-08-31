@@ -5,12 +5,12 @@ namespace MTUnityAction
     public class CCTargetedAction : CCFiniteTimeAction
     {
         public CCFiniteTimeAction TargetedAction { get; private set; }
-        public MonoBehaviour ForcedTarget { get; private set; }
+        public GameObject ForcedTarget { get; private set; }
 
 
         #region Constructors
 
-        public CCTargetedAction (MonoBehaviour target, CCFiniteTimeAction action) : base (action.Duration)
+        public CCTargetedAction (GameObject target, CCFiniteTimeAction action) : base (action.Duration)
         {
             ForcedTarget = target;
             TargetedAction = action;
@@ -19,7 +19,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCTargetedActionState (this, target);
         }
@@ -36,9 +36,9 @@ namespace MTUnityAction
 
         protected CCFiniteTimeActionState ActionState { get; set; }
 
-        protected MonoBehaviour ForcedTarget { get; set; }
+        protected GameObject ForcedTarget { get; set; }
 
-        public CCTargetedActionState (CCTargetedAction action, MonoBehaviour target)
+        public CCTargetedActionState (CCTargetedAction action, GameObject target)
             : base (action, target)
         {   
             ForcedTarget = action.ForcedTarget;

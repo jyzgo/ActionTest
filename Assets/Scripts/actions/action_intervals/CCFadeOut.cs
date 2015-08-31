@@ -12,7 +12,7 @@ namespace MTUnityAction
 
         #endregion Constructors
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCFadeOutState (this, target);
 
@@ -27,7 +27,7 @@ namespace MTUnityAction
     public class CCFadeOutState : CCFiniteTimeActionState
     {
 
-        public CCFadeOutState (CCFadeOut action, MonoBehaviour target)
+        public CCFadeOutState (CCFadeOut action, GameObject target)
             : base (action, target)
         {
         }

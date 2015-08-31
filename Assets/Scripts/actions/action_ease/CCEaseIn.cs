@@ -15,7 +15,7 @@ namespace MTUnityAction
         #endregion Constructors
 
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCEaseInState (this, target);
         }
@@ -31,7 +31,7 @@ namespace MTUnityAction
 
     public class CCEaseInState : CCEaseRateActionState
     {
-        public CCEaseInState (CCEaseIn action, MonoBehaviour target) : base (action, target)
+        public CCEaseInState (CCEaseIn action, GameObject target) : base (action, target)
         {
         }
 

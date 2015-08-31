@@ -21,7 +21,7 @@ namespace MTUnityAction
             throw new System.NotImplementedException ();
         }
 
-        protected internal override MTActionState StartAction(MonoBehaviour target)
+        protected internal override MTActionState StartAction(GameObject target)
         {
             return new CCTintToState (this, target);
         }
@@ -33,7 +33,7 @@ namespace MTUnityAction
 
         protected Color ColorTo { get; set; }
 
-        public CCTintToState (CCTintTo action, MonoBehaviour target)
+        public CCTintToState (CCTintTo action, GameObject target)
             : base (action, target)
         {   
             ColorTo = action.ColorTo;
