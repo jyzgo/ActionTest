@@ -1,73 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/actions/action_ease/MTEaseIn.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/actions/action_ease/MTEaseRateAction.cs">
     <Files>
-      <File FileName="Assets/Scripts/actions/action_instants/callfunc/MTCallFuncO.cs" Line="7" Column="29" />
-      <File FileName="Assets/Scripts/actions/action/MTAction.cs" Line="11" Column="35" />
-      <File FileName="Assets/Scripts/actions/MTActionManager.cs" Line="246" Column="81" />
-      <File FileName="Assets/Scripts/actions/MTActionExtension.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TestAction.cs" Line="19" Column="3" />
-      <File FileName="Assets/Scripts/actions/action_instants/callfunc/MTCallFunc.cs" Line="39" Column="33" />
-      <File FileName="Assets/Scripts/actions/action/MTFiniteTimeActionState.cs" Line="33" Column="3" />
-      <File FileName="Assets/Scripts/actions/action/MTAmplitudeActionState.cs" Line="30" Column="38" />
-      <File FileName="Assets/Scripts/actions/action/MTSpeed.cs" Line="5" Column="25" />
-      <File FileName="Assets/Scripts/actions/action_math/MTEaseMath.cs" Line="5" Column="34" />
-      <File FileName="Assets/Scripts/actions/action_math/MTMathHelper.cs" Line="6" Column="37" />
-      <File FileName="Assets/Scripts/actions/action_math/MTSplineMath.cs" Line="5" Column="30" />
-      <File FileName="Assets/Scripts/actions/action_math/MTRandom.cs" Line="6" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_math/MTFastRandom.cs" Line="40" Column="30" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTBezierBy.cs" Line="7" Column="28" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTBlink.cs" Line="5" Column="25" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTBezierTo.cs" Line="9" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTExtraAction.cs" Line="24" Column="66" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTDelayTime.cs" Line="15" Column="81" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTFadeOut.cs" Line="5" Column="27" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTFadeIn.cs" Line="5" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTFadeTo.cs" Line="7" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTJumpBy.cs" Line="5" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTMoveBy.cs" Line="5" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTJumpTo.cs" Line="24" Column="47" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTParallel.cs" Line="8" Column="28" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTMoveTo.cs" Line="5" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTRepeat.cs" Line="5" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTRepeatForever.cs" Line="7" Column="33" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTReverseTime.cs" Line="7" Column="31" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTRotateBy.cs" Line="39" Column="33" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTRotateTo.cs" Line="41" Column="33" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTScaleBy.cs" Line="5" Column="36" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTSequence.cs" Line="7" Column="28" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTSpawn.cs" Line="8" Column="25" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTTargetedAction.cs" Line="5" Column="34" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTTintBy.cs" Line="6" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_intervals/MTTintTo.cs" Line="5" Column="26" />
-      <File FileName="Assets/Scripts/actions/action_instants/MTActionInstant.cs" Line="28" Column="38" />
-      <File FileName="Assets/Scripts/actions/action_instants/MTHideState.cs" Line="24" Column="31" />
-      <File FileName="Assets/Scripts/actions/action_instants/MTPlaceState.cs" Line="31" Column="30" />
-      <File FileName="Assets/Scripts/actions/action_instants/MTRemoveSelf.cs" Line="40" Column="35" />
-      <File FileName="Assets/Scripts/actions/action_instants/MTToggleVisibility.cs" Line="23" Column="41" />
-      <File FileName="Assets/Scripts/actions/action_instants/callfunc/MTCallFuncND.cs" Line="18" Column="39" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTActionEase.cs" Line="14" Column="34" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseBackInOutState_1.cs" Line="5" Column="33" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseBackIn.cs" Line="5" Column="30" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseBackOut.cs" Line="5" Column="31" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseBounceIn.cs" Line="5" Column="32" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseBounceInOut.cs" Line="5" Column="35" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseBounceOut.cs" Line="30" Column="38" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseCustom.cs" Line="36" Column="55" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseElastic.cs" Line="26" Column="42" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseElasticIn.cs" Line="27" Column="44" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseElasticInOut.cs" Line="39" Column="41" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseExponentialIn.cs" Line="40" Column="48" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseElasticOut.cs" Line="39" Column="39" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseExponentialOut.cs" Line="32" Column="43" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseIn.cs" Line="32" Column="1" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseExponentialInOut.cs" Line="32" Column="45" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseInOut.cs" Line="7" Column="29" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseOut.cs" Line="32" Column="32" />
+      <File FileName="Assets/Scripts/actions/action_ease/MTEaseIn.cs" Line="32" Column="47" />
       <File FileName="Assets/Scripts/actions/action_ease/MTEaseRateAction.cs" Line="34" Column="39" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseSineIn.cs" Line="14" Column="28" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseSineInOut.cs" Line="7" Column="33" />
-      <File FileName="Assets/Scripts/actions/action_ease/MTEaseSineOut.cs" Line="7" Column="31" />
+      <File FileName="Assets/Scripts/actions/action_ease/MTActionEase.cs" Line="14" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
